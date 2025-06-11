@@ -424,7 +424,11 @@ def main():
         if player_hp <= 0:
             print("Game Over!")
             running = False
-
+        elif all(enemy['hp'] <= 0 for enemy in enemies):
+            draw_text("All enemies defeated! You win!", WIDTH // 2 - 110, HEIGHT // 2)
+            pygame.display.flip()
+            pygame.time.delay(3000)
+            running = False
     pygame.quit()
     sys.exit()
 
